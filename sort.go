@@ -63,7 +63,37 @@ func SelectionSort(l []int) {
 }
 
 func partition(l []int, p int, r int) int {
-	return 1
+	/*
+		left less than; right equal to and more than pviot
+		pviot must be bound to a position
+		多指针从同一头开始，或者一头一尾开始（推荐）
+	*/
+	pviot := l[r]
+	var h, t int = p, r
+	for h < t {
+		if l[h] < pviot {
+			h++
+			continue
+		}
+		if l[t] >= pviot {
+			t--
+			continue
+		}
+		//swap h and t
+		l[h], l[t] = l[t], l[h]
+	}
+	/*
+		6,4
+		1,4
+		7,5,4
+		1,2,4
+	*/
+	// h==t
+	if l[t] > l[r] {
+		l[t], l[r] = l[r], l[t]
+	}
+
+	return t
 }
 
 // QuickSort

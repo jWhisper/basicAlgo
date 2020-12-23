@@ -17,6 +17,7 @@ func main() {
 	fmt.Printf("list is %v before sort\n", toSort)
 	// BubbleSort(toSort)
 	// InsertionSort(toSort)
-	SelectionSort(toSort)
+	// SelectionSort(toSort)
+	QuickSort(toSort, 0, len(toSort)-1)
 	fmt.Printf("list is %v after sort\n", toSort)
 }
