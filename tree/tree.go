@@ -1,4 +1,4 @@
-package main
+package tree
 
 type tree struct {
 	val         int
@@ -51,46 +51,46 @@ func NewBTree(l []int) *tree {
 	return head
 }
 
-func (t *tree) inorder() []int {
+func (t *tree) Inorder() []int {
 	var ret []int
 	if t == nil {
 		return ret
 	}
 	ret = append(ret, t.val)
 
-	l := t.left.inorder()
+	l := t.left.Inorder()
 	ret = append(l, ret...)
 
-	r := t.right.inorder()
+	r := t.right.Inorder()
 	ret = append(ret, r...)
 
 	return ret
 }
 
-func (t *tree) preorder() []int {
+func (t *tree) Preorder() []int {
 	var ret []int
 	if t == nil {
 		return ret
 	}
 	ret = append(ret, t.val)
 
-	l := t.left.preorder()
+	l := t.left.Preorder()
 	ret = append(ret, l...)
 
-	r := t.right.preorder()
+	r := t.right.Preorder()
 	ret = append(ret, r...)
 
 	return ret
 }
 
-func (t *tree) postorder() []int {
+func (t *tree) Postorder() []int {
 	var ret []int
 	if t == nil {
 		return ret
 	}
 
-	l := t.left.postorder()
-	r := t.right.postorder()
+	l := t.left.Postorder()
+	r := t.right.Postorder()
 	ret = append(l, r...)
 	ret = append(ret, t.val)
 
