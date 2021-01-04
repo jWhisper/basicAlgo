@@ -10,6 +10,8 @@ var toSort = []int{3, 5, 1, 2, 7, 4}
 
 func main() {
 	fmt.Printf("list is %v before sort\n", toSort)
+	linked := NewLink(toSort)
+	ReverseLink(linked)
 	// t := tree.NewBTree(toSort)
 	// fmt.Println(t.Inorder(), t.Preorder(), t.Postorder())
 	// mh := heap.NewHeap(toSort)
