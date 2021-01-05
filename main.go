@@ -4,14 +4,18 @@ import (
 	"fmt"
 
 	"github.com/jungleWhisper/basicAlgo/heap"
+	xsync "github.com/jungleWhisper/basicAlgo/sync"
 )
 
 var toSort = []int{3, 5, 1, 2, 7, 4}
 
 func main() {
 	fmt.Printf("list is %v before sort\n", toSort)
-	linked := NewLink(toSort)
-	ReverseLink(linked)
+	//sync.SafeGO(test)
+	xsync.OneThread()
+	//linked := link.NewLink(toSort)
+	//linked = link.ReverseLink(linked)
+	//link.PrintLink(linked)
 	// t := tree.NewBTree(toSort)
 	// fmt.Println(t.Inorder(), t.Preorder(), t.Postorder())
 	// mh := heap.NewHeap(toSort)
