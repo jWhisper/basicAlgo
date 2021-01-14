@@ -5,7 +5,8 @@ import (
 	"testing"
 )
 
-func BenchmarkEnqueue(b *testing.B) {
+//func BenchmarkEnqueue(b *testing.B) {
+func TestEnqueue(b *testing.T) {
 	q := NewLKQueue()
 	var data = []int{1, 2, 3, 4, 5, 6}
 
@@ -34,7 +35,10 @@ func popdata(q *LKQueue) (ret []int) {
 	var wg sync.WaitGroup
 	count := 10
 	ch := make(chan int, 5)
+
+	wg.Add(1)
 	go func() {
+		defer wg.Done()
 		for v := range ch {
 			ret = append(ret, v)
 		}
