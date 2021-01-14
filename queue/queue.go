@@ -33,6 +33,7 @@ func (q *LKQueue) Enqueue(v interface{}) {
 			if nxt == nil {
 				if cas(&tail.nxt, nxt, n) {
 					cas(&q.tail, tail, n)
+					return
 				}
 			} else {
 				cas(&q.tail, tail, nxt)
