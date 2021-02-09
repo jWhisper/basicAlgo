@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jungleWhisper/basicAlgo/heap"
+	"github.com/jungleWhisper/basicAlgo/sort"
 	xsync "github.com/jungleWhisper/basicAlgo/sync"
 )
 
@@ -11,6 +12,7 @@ var toSort = []int{3, 5, 1, 2, 7, 4}
 
 func main() {
 	fmt.Printf("list is %v before sort\n", toSort)
+	fmt.Println(sort.MergeSort(toSort))
 	//sync.SafeGO(test)
 	xsync.OneThread()
 	//linked := link.NewLink(toSort)
