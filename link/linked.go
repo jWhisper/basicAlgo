@@ -26,13 +26,25 @@ func NewLink(vals []int) *linkNode {
 }
 
 func ReverseLink(root *linkNode) *linkNode {
-	if root.next == nil {
+	if root.next == nil || root == nil {
 		return root
 	}
 	last := ReverseLink(root.next)
 	root.next.next = root
 	root.next = nil
 	return last
+}
+
+func ReverseLinkIter(root *linkNode) *linkNode {
+	var pre *linkNode
+	cur := root
+	for cur != nil {
+		nxt := cur.next
+		cur.next = pre
+		pre = cur
+		cur = nxt
+	}
+	return pre
 }
 
 func PrintLink(root *linkNode) {
