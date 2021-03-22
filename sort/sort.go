@@ -105,3 +105,39 @@ func QuickSort(l []int, p int, r int) {
 	QuickSort(l, p, pviot-1)
 	QuickSort(l, pviot+1, r)
 }
+
+// MergeSort is
+func MergeSort(l []int) []int {
+	if len(l) <= 1 {
+		return l
+	}
+	mid := len(l) / 2
+	ll := MergeSort(l[0:mid])
+	rl := MergeSort(l[mid:])
+	sortedList := merge(ll, rl)
+	return sortedList
+}
+
+func merge(l, r []int) []int {
+	var ret []int
+	var i, j int
+	for {
+		if i == len(l) {
+			ret = append(ret, r[j:]...)
+			break
+		}
+		if j == len(r) {
+			ret = append(ret, l[i:]...)
+			break
+		}
+
+		if l[i] <= r[j] {
+			ret = append(ret, l[i])
+			i++
+		} else {
+			ret = append(ret, r[j])
+			j++
+		}
+	}
+	return ret
+}
